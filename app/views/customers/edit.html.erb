@@ -1,0 +1,33 @@
+<h1>  Create new customers </h1>
+  <% if @customer.errors.any? %>
+     <h2>Cutomer could not be inserted </h2>
+     <ul>
+     <% @customer.errors.full_messages.each do |msg| %>
+         
+         	<li> <%= msg %> </li>
+
+         
+     <%end%>
+ </ul>
+   <%end%>  
+
+   <%= form_for @customer do |t| %>
+      <p>
+      	<%= t.label :customer_first_nm %> <br/>
+      	<%= t.text_field :customer_first_nm %>
+      </p>
+      <p>
+      	<%= t.label :customer_last_nm %> <br/>
+      	<%= t.text_field :customer_last_nm %>
+      </p>
+      <p>
+      	<%= t.label :customer_email %> <br/>
+      	<%= t.text_field :customer_email %>
+      </p>
+      <p>
+      	<%= t.label :comment %> <br/>
+      	<%= t.text_area :comment %>
+      </p>
+    <p>  <%= t.submit "Update"%></p>
+   
+   <%end%> 
