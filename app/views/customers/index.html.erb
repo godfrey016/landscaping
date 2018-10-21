@@ -1,3 +1,36 @@
-<div> <h1> Home for Landscaping </h1></div>
+<div> <h1> List of Customer</h1></div>
 
-<%= link_to "About Us", about_path %>
+
+<table>
+	<tr> 
+		<th>
+			First Name
+		</th>
+		<th>
+			Last Name
+		</th>
+		<th>
+			Email
+		</th>
+		<th>
+			Comment
+		</th>
+	
+    </tr>
+	
+		<% @customers.each do |customer| %>
+		<tr>
+		<td> <%= customer.customer_first_nm %> </td>
+		<td> <%= customer.customer_last_nm %> </td>
+		<td> <%= customer.customer_email %> </td>
+		<td> <%= customer.comment %> </td>
+		<td> <%= link_to "Show", customer_path(customer) %> </td>
+		<td> <%= link_to "Edit", edit_customer_path(customer) %> </td>
+		<td> <%= link_to "Delete", customer_path(customer), method: :delete,data:{confirm:"Are you sure"} %> </td>
+	</tr>
+		<%end%>
+	
+</table>
+
+<%= link_to "Create Customer", new_customer_path() %> |
+<%= link_to "Home Page", root_path() %> 
