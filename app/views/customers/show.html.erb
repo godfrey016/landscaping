@@ -5,3 +5,7 @@
 <p>  Email: <%= @customer.customer_email %> </p>
 <p> Comment <%= @customer.comment %> </p>
 
+<%= link_to "Edit Article", edit_customer_path(@customer) %> | 
+
+<%=link_to "List all article", customers_path() %>
+
